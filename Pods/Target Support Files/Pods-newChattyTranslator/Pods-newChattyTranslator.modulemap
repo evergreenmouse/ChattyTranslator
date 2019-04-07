@@ -1,0 +1,6 @@
+framework module Pods_newChattyTranslator {
+  umbrella header "Pods-newChattyTranslator-umbrella.h"
+
+  export *
+  module * { export * }
+}

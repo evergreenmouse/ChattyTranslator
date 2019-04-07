@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1FFD47A36E1E0D9506AD27BE /* Pods_newChattyTranslator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EC57242BC5C2A2A929D0C9C /* Pods_newChattyTranslator.framework */; };
 		CA56B94C225A77F40042FD43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA56B94B225A77F40042FD43 /* AppDelegate.swift */; };
 		CA56B94E225A77F40042FD43 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA56B94D225A77F40042FD43 /* MainVC.swift */; };
 		CA56B951225A77F40042FD43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA56B94F225A77F40042FD43 /* Main.storyboard */; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D176A17B59B2C8BA88F4288 /* Pods-newChattyTranslator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-newChattyTranslator.release.xcconfig"; path = "Target Support Files/Pods-newChattyTranslator/Pods-newChattyTranslator.release.xcconfig"; sourceTree = "<group>"; };
+		6EC57242BC5C2A2A929D0C9C /* Pods_newChattyTranslator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_newChattyTranslator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA56B948225A77F40042FD43 /* newChattyTranslator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = newChattyTranslator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA56B94B225A77F40042FD43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CA56B94D225A77F40042FD43 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -34,6 +37,7 @@
 		CA56B968225A83690042FD43 /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
 		CA56B96A225A86020042FD43 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		CA56B96E225A86A00042FD43 /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
+		D5D553775BB293B63B8D9638 /* Pods-newChattyTranslator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-newChattyTranslator.debug.xcconfig"; path = "Target Support Files/Pods-newChattyTranslator/Pods-newChattyTranslator.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,17 +45,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FFD47A36E1E0D9506AD27BE /* Pods_newChattyTranslator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BFF3808D5DBB0CE2F3C3FA8B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6EC57242BC5C2A2A929D0C9C /* Pods_newChattyTranslator.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CA56B93F225A77F40042FD43 = {
 			isa = PBXGroup;
 			children = (
 				CA56B94A225A77F40042FD43 /* newChattyTranslator */,
 				CA56B949225A77F40042FD43 /* Products */,
+				D6AFE41F7A4036D90017C8FF /* Pods */,
+				BFF3808D5DBB0CE2F3C3FA8B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +137,16 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		D6AFE41F7A4036D90017C8FF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D5D553775BB293B63B8D9638 /* Pods-newChattyTranslator.debug.xcconfig */,
+				3D176A17B59B2C8BA88F4288 /* Pods-newChattyTranslator.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -129,9 +154,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CA56B95A225A77F50042FD43 /* Build configuration list for PBXNativeTarget "newChattyTranslator" */;
 			buildPhases = (
+				3B9A78DC98A3E059E436096A /* [CP] Check Pods Manifest.lock */,
 				CA56B944225A77F40042FD43 /* Sources */,
 				CA56B945225A77F40042FD43 /* Frameworks */,
 				CA56B946225A77F40042FD43 /* Resources */,
+				F02019EDBB230949B96C8136 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -187,6 +214,55 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3B9A78DC98A3E059E436096A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-newChattyTranslator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F02019EDBB230949B96C8136 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-newChattyTranslator/Pods-newChattyTranslator-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-newChattyTranslator/Pods-newChattyTranslator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CA56B944225A77F40042FD43 /* Sources */ = {
@@ -344,6 +420,7 @@
 		};
 		CA56B95B225A77F50042FD43 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5D553775BB293B63B8D9638 /* Pods-newChattyTranslator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -362,6 +439,7 @@
 		};
 		CA56B95C225A77F50042FD43 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D176A17B59B2C8BA88F4288 /* Pods-newChattyTranslator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
