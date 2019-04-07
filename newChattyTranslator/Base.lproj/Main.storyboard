@@ -39,7 +39,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Iki-38-njs">
-                                <rect key="frame" x="0.0" y="44" width="414" height="758"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="658"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chatCell" id="fxV-8G-DAy">
@@ -56,17 +56,41 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="6rQ-Pw-3BI"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZBO-hP-xOU">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="144"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сообщения" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aR9-z9-W4n">
+                                        <rect key="frame" x="16" y="98" width="390" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="bxu-dy-92e"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="33"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="aR9-z9-W4n" firstAttribute="leading" secondItem="ZBO-hP-xOU" secondAttribute="leading" constant="16" id="1OJ-LH-B6h"/>
+                                    <constraint firstAttribute="trailing" secondItem="aR9-z9-W4n" secondAttribute="trailing" constant="8" id="7sf-Ib-cjz"/>
+                                    <constraint firstAttribute="height" constant="144" id="Nlb-7V-tGh"/>
+                                    <constraint firstAttribute="bottom" secondItem="aR9-z9-W4n" secondAttribute="bottom" constant="8" id="VwV-SF-Mi1"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="GoU-48-UHs" firstAttribute="top" secondItem="Iki-38-njs" secondAttribute="bottom" constant="8" id="2yN-5G-3Kg"/>
+                            <constraint firstItem="Iki-38-njs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3ej-k8-dKO"/>
                             <constraint firstItem="GoU-48-UHs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="9aT-mC-P3B"/>
                             <constraint firstItem="mMX-oW-jdH" firstAttribute="leading" secondItem="GoU-48-UHs" secondAttribute="trailing" constant="8" id="A47-2z-9kB"/>
+                            <constraint firstItem="GoU-48-UHs" firstAttribute="top" secondItem="Iki-38-njs" secondAttribute="bottom" constant="8" id="C8L-iW-HPp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mMX-oW-jdH" secondAttribute="trailing" constant="8" id="FOa-kD-Jxj"/>
                             <constraint firstItem="mMX-oW-jdH" firstAttribute="centerY" secondItem="GoU-48-UHs" secondAttribute="centerY" id="NL4-f9-3Sb"/>
-                            <constraint firstItem="Iki-38-njs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dq0-Yk-yFf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Iki-38-njs" secondAttribute="trailing" id="rco-jd-wjb"/>
-                            <constraint firstItem="Iki-38-njs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="t7C-FT-xxF"/>
+                            <constraint firstItem="Iki-38-njs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="RaX-a3-yrW"/>
+                            <constraint firstItem="ZBO-hP-xOU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="V4I-KL-3gt"/>
+                            <constraint firstItem="ZBO-hP-xOU" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gby-qC-ahi"/>
+                            <constraint firstItem="ZBO-hP-xOU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="lDL-rU-5F5"/>
+                            <constraint firstItem="Iki-38-njs" firstAttribute="top" secondItem="ZBO-hP-xOU" secondAttribute="bottom" id="qrv-oX-69X"/>
                             <constraint firstItem="GoU-48-UHs" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-8" id="tb2-Dj-sam"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -79,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138.40000000000001" y="138.98050974512745"/>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
     </scenes>
 </document>

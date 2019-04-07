@@ -10,30 +10,11 @@ import UIKit
 
 class MainVC: UIViewController {
     
-    let textMessages = [
-        Message(messageText: "Мое первое сообщение", isIncoming: true),
-        Message(messageText: "Мое второе сообщение гораздо длинней первого", isIncoming: false),
-        Message(messageText: "Мое третье сообщение очень длинное и нужно для того, чтобы понять, как ведут себя большие строки в ячейках", isIncoming: false),
-        Message(messageText: "Еще одно короткое сообщение", isIncoming: true),
-        Message(messageText: "Привет", isIncoming: false),
-    Message(messageText: "Мое третье сообщение очень длинное и нужно для того, чтобы понять, как ведут себя большие строки в ячейках", isIncoming: false),
-    Message(messageText: "Мое третье сообщение очень длинное и нужно для того, чтобы понять, как ведут себя большие строки в ячейках", isIncoming: true),
-    Message(messageText: "Мое третье сообщение очень длинное и нужно для того, чтобы понять, как ведут себя большие строки в ячейках", isIncoming: false),
-    Message(messageText: "Мое третье сообщение очень длинное и нужно для того, чтобы понять, как ведут себя большие строки в ячейках", isIncoming: true),
-    Message(messageText: "Мое третье сообщение очень длинное и нужно для того, чтобы понять, как ведут себя большие строки в ячейках", isIncoming: false),
-    Message(messageText: "Мое третье сообщение очень длинное и нужно для того, чтобы понять, как ведут себя большие строки в ячейках", isIncoming: true),
-    Message(messageText: "Мое третье сообщение очень длинное и нужно для того, чтобы понять, как ведут себя большие строки в ячейках", isIncoming: false),
-    Message(messageText: "Мое третье сообщение очень длинное и нужно для того, чтобы понять, как ведут себя большие строки в ячейках", isIncoming: false),
-    Message(messageText: "Мое третье сообщение очень длинное и нужно для того, чтобы понять, как ведут себя большие строки в ячейках", isIncoming: true),
-    Message(messageText: "Мое третье сообщение очень длинное и нужно для того, чтобы понять, как ведут себя большие строки в ячейках", isIncoming: false),
-    Message(messageText: "Мое третье сообщение очень длинное и нужно для того, чтобы понять, как ведут себя большие строки в ячейках", isIncoming: true),
-    Message(messageText: "Мое третье сообщение очень длинное и нужно для того, чтобы понять, как ведут себя большие строки в ячейках", isIncoming: false)]
 
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
-    @IBOutlet weak var navigationBar: UINavigationBar!
     
     var bottomConstraint: NSLayoutConstraint?
     
@@ -65,12 +46,14 @@ class MainVC: UIViewController {
             let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
             let isKeyboardShowing = notification.name == UIResponder.keyboardWillShowNotification
             
-            bottomConstraint?.constant = isKeyboardShowing ? -keyboardFrame!.height : 0
+            bottomConstraint?.constant = isKeyboardShowing ? -keyboardFrame!.height-8 : -8
             
             UIView.animate(withDuration: 0, delay: 0, options: UIView.AnimationOptions.curveEaseOut, animations: {
                 self.view.layoutIfNeeded()
             }) { (comleted) in
-                self.tableView.scrollToRow(at: IndexPath(row: self.textMessages.count-1, section: 0), at: .bottom, animated: true)
+                if TranslationService.instance.currentSessionArray.count-1 >= 0 {
+                    self.tableView.scrollToRow(at: IndexPath(row: TranslationService.instance.currentSessionArray.count-1, section: 0), at: .bottom, animated: true)
+                }
             }
         }
     }
@@ -80,18 +63,35 @@ class MainVC: UIViewController {
     }
 
     @IBAction func sendButtonPressed(_ sender: Any) {
+        if inputTextField.text != "" || inputTextField.text != nil {
+            
+            getTranslation(text: inputTextField.text!)
+            view.endEditing(true)
+            inputTextField.text = nil
+        }
+    }
+    
+    func getTranslation(text: String) {
+        TranslationService.instance.currentSessionArray.append(Message(messageText: text, isIncoming: false))
+        self.tableView.reloadData()
+        TranslationService.instance.getTranslation(textToTranslate: text) { (success) in
+            if success {
+                self.tableView.reloadData()
+                self.tableView.scrollToRow(at: IndexPath(row: TranslationService.instance.currentSessionArray.count-1, section: 0), at: .bottom, animated: true)
+            }
+        }
     }
     
 }
 
 extension MainVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return textMessages.count
+        return TranslationService.instance.currentSessionArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell", for: indexPath) as! ChatCell
-        let message = self.textMessages[indexPath.row]
+        let message = TranslationService.instance.currentSessionArray[indexPath.row]
         cell.chatMessage = message
         return cell
     }
